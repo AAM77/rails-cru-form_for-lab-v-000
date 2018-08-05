@@ -9,8 +9,8 @@ class SongsController < ApplicationController
   end
   
   def create
-    artist = Artist.find(params[:song][:artist_name])
-    genre = Genre.find(params[:song][:genre_name])
+    artist = Artist.find(params[:song][:artist])
+    genre = Genre.find(params[:song][:genre])
     
     @song = Song.create(song_params(:name, artist.id, genre.id))
     redirect_to songs_path
@@ -21,8 +21,8 @@ class SongsController < ApplicationController
   end
   
   def update
-    artist = Artist.find(params[:song][:artist_name])
-    genre = Genre.find(params[:song][:genre_name])
+    artist = Artist.find(params[:song][:artist])
+    genre = Genre.find(params[:song][:genre])
     
     @song = Song.find_by_id(params[:id])
     @song.update(song_params(:name, :artist_id, :genre_id))

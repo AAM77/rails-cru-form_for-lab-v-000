@@ -15,6 +15,7 @@ class GenresController < ApplicationController
   end
   
   def update
+    @genre = Genre.find_by_id(params[:id])
     redirect_to genres_path
   end
   

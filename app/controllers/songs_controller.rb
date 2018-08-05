@@ -12,7 +12,7 @@ class SongsController < ApplicationController
     artist = Artist.find(params[:song][:artist_name])
     
     genre = Genre.find(params[:song][:genre_name])
-    @song = Song.create(song_params(:name, artist.id, :genre_id))
+    @song = Song.create(song_params(:name, artist.id, genre.id))
     redirect_to songs_path
   end
   

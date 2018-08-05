@@ -18,6 +18,7 @@ class SongsController < ApplicationController
   end
   
   def update
+    @song = Song.find_by_id(params[:id])
     redirect_to songs_path
   end
   

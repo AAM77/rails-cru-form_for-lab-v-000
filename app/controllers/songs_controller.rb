@@ -5,9 +5,11 @@ class SongsController < ApplicationController
   end
   
   def new
+    @song = Song.new
   end
   
   def create
+    @song = Song.create(song_params(:name))
     redirect_to songs_path
   end
   
